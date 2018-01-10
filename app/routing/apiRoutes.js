@@ -64,20 +64,26 @@ module.exports = function(app) {
 
       for (var j = 0; j<newUserScores.length; j++){
 
-        singleDiff = singleDiff + Maths.abs(friendsData[i].scores[j] - newUserScores[j]);
+        singleDiff = singleDiff + Math.abs(friendsData[i].scores[j] - newUserScores[j]);
 
       }
 
       if (singleDiff < lowestScoreDifference) {
         lowestScoreDifference = singleDiff;
-        
+        bestMatchName = friendsData[i].name;
+        bestMatchImage = friendsData[i].photo;
       }
 
       // console.log("Friend " + j + ": " + friendsData[j].scores);
     }
 
-    // friendsData.push(userResponse);  // write user input to friendsData
+    console.log("Best Match Name: " + bestMatchName);
+    console.log("Best Match Image: " + bestMatchImage);
+    friendsData.push(userResponse);  // write user input to friendsData
     // console.log(friendsData);
+
+    // Send best match response
+    res.json({status: 'OK', bestMatchName: bestMatchName, bestMatchImage: bestMatchImage});
     
   });
 
