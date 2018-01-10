@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tables Page</title>
+  <title>Survey Page</title>
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
   <!-- Font Awesome Glyphicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
 </head>
 <body>
 
@@ -22,9 +26,9 @@
 
 
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Name (Required)">
+      <input type="text" class="form-control" id="name" placeholder="Name (Required)">
       <br>
-      <input type="text" class="form-control" placeholder="Link to photo (Required)">
+      <input type="text" class="form-control" id="photo-link" placeholder="Link to photo (Required)">
     </div>
 
     <hr>
@@ -225,20 +229,9 @@
       </div>
     </div>
 
-
-
-
-    <button type="button" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-primary" id="submit">Submit</button>
 
     <hr>
-
-
-
-
-
-
-
-
 
     <footer class="footer">
       <div class="container">
@@ -247,6 +240,73 @@
     </footer>
 
   </div>
+
+
+
+
+
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+<script type="text/javascript">
+
+    // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+    // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
+    // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+
+    $("#submit").on("click", function() {
+      // event.preventDefault();
+
+
+      // Here we grab the form elements
+      var newFriend = {
+        name: $("#name").val(),
+        photo: $("#photo-link").val(),
+        scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
+      };
+
+      console.log(newFriend);
+
+
+      // Grab the URL of the website
+      var currentURL = window.location.origin;
+      console.log(currentURL);
+
+      // AJAX post the data to the friends API. 
+      $.post(currentURL + "/api/friends", newFriend, function(data){
+
+
+
+      });
+
+      // This line is the magic. It"s very similar to the standard ajax function we used.
+      // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+      // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+      // depending on if a tables is available or not.
+
+      // $.post("/api/tables", newReservation,
+      //   function(data) {
+
+      //     // If a table is available... tell user they are booked.
+      //     if (data) {
+      //       alert("Yay! You are officially booked!");
+      //     }
+
+      //     // If a table is available... tell user they on the waiting list.
+      //     else {
+      //       alert("Sorry you are on the wait list");
+      //     }
+
+      //     // Clear the form when submitting
+      //     $("#reserve-name").val("");
+      //     $("#reserve-phone").val("");
+      //     $("#reserve-email").val("");
+      //     $("#reserve-unique-id").val("");
+
+      //   });
+
+    });
+
+</script>
 
 
 </body>
