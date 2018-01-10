@@ -40,6 +40,7 @@ module.exports = function(app) {
     var newUserScores = userResponse.scores; // array [strings] of scores from user
     var newUserName = userResponse.name; // name of new user
     var newUserTotalScore = 0;
+    var lowestScoreDifference = 50; // set initial best/lowest difference to max of 10 questions (10*5)
     var bestMatchName;
     var bestMatchImage;
 
@@ -57,13 +58,25 @@ module.exports = function(app) {
 
     // console.log("TotalScore: " + newUserTotalScore);
 
-    for (var j = 0; j<friendsData.length; j++){
+    for (var i = 0; i<friendsData.length; i++){
 
+      var singleDiff = 0;
+
+      for (var j = 0; j<newUserScores.length; j++){
+
+        singleDiff = singleDiff + Maths.abs(friendsData[i].scores[j] - newUserScores[j]);
+
+      }
+
+      if (singleDiff < lowestScoreDifference) {
+        lowestScoreDifference = singleDiff;
+        
+      }
 
       // console.log("Friend " + j + ": " + friendsData[j].scores);
     }
 
-    friendsData.push(userResponse);  // write user input to friendsData
+    // friendsData.push(userResponse);  // write user input to friendsData
     // console.log(friendsData);
     
   });
