@@ -19,15 +19,11 @@ Survey screen shot of Friend Finder
 
 
 
-To run Friend Finder, follow the steps below:
+To run Friend Finder locally, follow the steps below:
 ```
 git clone git@github.com:dpkillian/friendfinder.git
 cd friendfinder
 npm install
 node server.js
-open browswer (http://localhost:3030)```
-
-
-
-
-
+open browswer (http://localhost:3030)
+```
