@@ -5,6 +5,19 @@ A web-based application that queries the user to rate 10 questions on a scale of
 ## Description
 This application is built using Node.js Express, jQuery, Bootstrap v3, Glyphicons, body-parser and path.  It runs in the browser on localhost:3030 or is hosted on Heroku [here](https://www.heroku.com/).
 
+## Running Friend Finder
+After typing "http://localhost:3030", in the broswer address window, the user is presented with the following screen.
+
+Initial screen shot of Friend Finder
+![Main Screen 1](/app/images/ff1.jpeg)
+
+
+
+Survey screen shot of Friend Finder
+![Main Screen 1](/app/images/ff2.jpeg)
+
+
+
 
 To run Friend Finder, follow the steps below:
 ```
@@ -16,14 +29,5 @@ open browswer (http://localhost:3030)```
 
 
 
-## Running Friend Finder
-After typing "http://localhost:3030", in the broswer address window, the user is presented with the following screen.
 
-Initial screen shot of Friend Finder
-![Main Screen 1](/app/images/ff1.jpeg)
-
-
-
-Survey screen shot of Friend Finder
-![Main Screen 1](/app/images/ff2.jpeg)
 
