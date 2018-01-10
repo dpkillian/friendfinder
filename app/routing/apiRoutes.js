@@ -15,7 +15,7 @@ module.exports = function(app) {
   // API GET Requests
   // Below code handles when users "visit" a page.
   // In each of the below cases when a user visits a link
-  // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
+  // (ex: localhost:PORT/api/friends... they are shown a JSON of the data in the table)
   // ---------------------------------------------------------------------------
 
   app.get("/api/friends", function(req, res) {
@@ -27,24 +27,49 @@ module.exports = function(app) {
   // Below code handles when a user submits a form and thus submits data to the server.
   // In each of the below cases, when a user submits form data (a JSON object)
   // ...the JSON is pushed to the appropriate JavaScript array
-  // (ex. User fills out a reservation request... this data is then sent to the server...
-  // Then the server saves the data to the tableData array)
+  // (ex. User fills out a survey questions...this data is then sent to the server...
+  // Then the server saves the data to the friendsData array (in friends.js))
   // ---------------------------------------------------------------------------
 
   app.post("/api/friends", function(req, res) {
-    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-    // It will do this by sending out the value "true" have a table
-    // req.body is available since we're using the body-parser middleware
+    // Note the code here. Our "server" will respond to requests and let the user know
+    // who is the closest match.  It will do this by comparing the differences in the users' scores.
+    // req.body is the "requested" data (user's input from the survey called newFriend)
 
     var userResponse = req.body;
-    var userScores = userResponse.scores;
+    var newUserScores = userResponse.scores; // array [strings] of scores from user
+    var newUserName = userResponse.name; // name of new user
+    var newUserTotalScore = 0;
+    var bestMatchName;
+    var bestMatchImage;
 
-    console.log('userInput = ' + JSON.stringify(userResponse));
-    friendsData.push(userResponse);
-    console.log(friendsData);
+    console.log("\n-------------------------");
+    console.log('New Users Name = ' + userResponse.name);
+    console.log('New Users Photo = ' + userResponse.photo);
+    console.log('New Users Scores (array) = '   + JSON.stringify(newUserScores));
+    console.log("-------------------------\n");
 
+    // Test loop to convert array of strings to int and total
+    // for (var i = 0; i<userScores.length; i++){
+    //   newUserTotalScore = newUserTotalScore + parseInt(userScores[i]);
+    //   // console.log("Score " + i + ": " + userScores[i]);
+    // }
+
+    // console.log("TotalScore: " + newUserTotalScore);
+
+    for (var j = 0; j<friendsData.length; j++){
+
+
+      // console.log("Friend " + j + ": " + friendsData[j].scores);
+    }
+
+    friendsData.push(userResponse);  // write user input to friendsData
+    // console.log(friendsData);
     
   });
+
+
+  // for(var i=0; i<myArray.length; i++) { myArray[i] = parseInt(myArray[i], 10); }
 
   // ---------------------------------------------------------------------------
   // I added this below code so you could clear out the table while working with the functionality.
