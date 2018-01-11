@@ -88,18 +88,4 @@ module.exports = function(app) {
   });
 
 
-  // for(var i=0; i<myArray.length; i++) { myArray[i] = parseInt(myArray[i], 10); }
-
-  // ---------------------------------------------------------------------------
-  // I added this below code so you could clear out the table while working with the functionality.
-  // Don"t worry about it!
-
-  // app.post("/api/clear", function() {
-  //   // Empty out the arrays of data
-  //   tableData = [];
-  //   waitListData = [];
-
-  //   console.log(tableData);
-  // });
-
 };
