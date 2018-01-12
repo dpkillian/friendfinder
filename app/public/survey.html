@@ -7,11 +7,13 @@
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery.js"></script>
 
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
   <!-- Font Awesome Glyphicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Latest compiled and minified Bootstrap CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 </head>
 <body>
@@ -229,7 +231,8 @@
       </div>
     </div>
 
-    <button type="button" class="btn btn-primary" id="submit">Submit</button>
+    <!-- Trigger the modal with submit button -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="submit">Submit</button>
 
     <hr>
 
@@ -240,6 +243,31 @@
     </footer>
 
   </div>
+
+
+
+  <!-- Modal Class definition-->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content (-->
+      <div class="modal-content">
+        <h3>Closest Friend Match</h3>
+        <div class="divider"></div>
+        <h4 class="modal-name"></h4>
+        <img id="modal-image" width="300" src="">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  
+
+
+
+
 
 
 
@@ -277,14 +305,10 @@
           $.post(currentURL + "/api/friends", newFriend) 
         .done(function(data) {
           console.log('response = ' + JSON.stringify(data));
-          // Set the name and image values of friend match
-        //   $('#userMatch').html(data.bestMatchName);
+          $(".modal-name").html(data.bestMatchName);
+          $("#modal-image").attr("src", data.bestMatchImage);
+          // alert("Best Match: " + data.bestMatchName + "\n" + "Image: " + data.bestMatchImage);
 
-          alert("Best Match: " + data.bestMatchName + "\n" + "Image: " + data.bestMatchImage);
-
-        // $("#userMatchImage").attr("src", data.bestMatchImage);
-        // Pop open the modal dialog
-          // $('#modal1').modal('open');
         });
 
     });

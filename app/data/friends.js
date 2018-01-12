@@ -6,8 +6,8 @@
 
 var friendsArray = [
 {
-	"name": "Ahmed",
-	"photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+	"name": "Elon Musk",
+	"photo": "https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0_400x400.jpg",
 	"scores": [
 		"5",
 		"1",
@@ -23,8 +23,8 @@ var friendsArray = [
 },
 
 {
-	"name": "Jacob Deming",
-	"photo": "https://pbs.twimg.com/profile_images/691785039043022849/oWsy8LNR.jpg",
+	"name": "Steve Jobs",
+	"photo": "https://mt-cdn-prod.azureedge.net/mediacache/7/a/5/3/e/6/7a53e6c1e9ab6ba3b16ed1ac72193bff514e3a45.jpg",
 	"scores": [
 		"4",
 		"2",
@@ -40,8 +40,8 @@ var friendsArray = [
 },
 
 {
-	"name": "Jeremiah Scanlon",
-	"photo": "https://avatars2.githubusercontent.com/u/8504998?v=3&s=460",
+	"name": "Barack Obama",
+	"photo": "https://pbs.twimg.com/profile_images/822547732376207360/5g0FC8XX.jpg",
 	"scores": [
 		"5",
 		"2",
@@ -57,8 +57,8 @@ var friendsArray = [
 },
 
 {
-	"name": "Louis T. Delia",
-	"photo": "https://pbs.twimg.com/profile_images/639214960049000449/lNCRC-ub.jpg",
+	"name": "Bruce Lee",
+	"photo": "https://i.ytimg.com/vi/DBjh61WIL1c/maxresdefault.jpg",
 	"scores": [
 		"3",
 		"3",
@@ -74,8 +74,8 @@ var friendsArray = [
 },
 
 {
-	"name": "Lou Ritter",
-	"photo": "https://m.facebook.com/photo.php?fbid=10208500699025296&id=1542229019&set=a.1549418665704.77596.1542229019&source=11",
+	"name": "Kim Kardashian",
+	"photo": "http://www.entertainmentsa.co.za/wp-content/uploads/2017/12/kim-kardashian-makeup-promo.jpg",
 	"scores": [
 		"4",
 		"3",
@@ -91,18 +91,69 @@ var friendsArray = [
 },
 
 {
-	"name": "Jordan Biason",
-	"photo": "https://scontent-ord1-1.xx.fbcdn.net/v/t1.0-9/12741971_10205764267089153_4212986785721953092_n.jpg?oh=4e18265f7d380167223a97fbd7eba278&oe=57B78445",
+	"name": "Elvis Presley",
+	"photo": "https://static.goldderby.com/wp-content/uploads/2017/08/Elvis-Presley-Movies-Ranked-620x360.jpg",
 	"scores": [
 		"4",
+		"3",
 		"4",
+		"1",
+		"5",
 		"2",
+		"5",
+		"3",
+		"1",
+		"4"
+	]
+},
+
+{
+	"name": "Tom Cruise",
+	"photo": "https://www.thefamouspeople.com/profiles/images/tom-cruise-1.jpg",
+	"scores": [
+		"5",
+		"3",
+		"3",
+		"1",
 		"3",
 		"2",
+		"5",
 		"2",
+		"2",
+		"4"
+	]
+},
+
+{
+	"name": "Angelina Jolie",
+	"photo": "http://desktop.beiruting.com/content/ResizedImages/768/10000/inside/Angelina-Jolie-promoting--011-150408032038744.jpg",
+	"scores": [
 		"3",
+		"4",
+		"2",
+		"5",
+		"2",
+		"5",
+		"4",
 		"2",
 		"4",
+		"5"
+	]
+},
+
+{
+	"name": "Dalai Lama",
+	"photo": "http://tibet.net/wp-content/uploads/2011/09/HHDL.png",
+	"scores": [
+		"1",
+		"4",
+		"2",
+		"1",
+		"2",
+		"2",
+		"1",
+		"2",
+		"2",
 		"5"
 	]
 }
