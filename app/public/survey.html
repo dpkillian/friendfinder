@@ -18,6 +18,7 @@
 </head>
 <body>
 
+  <!-- Basic Questionaire Form -->
   <div class="container">
 
     <h2 class="text-left">Survey Questions</h2>
@@ -35,6 +36,7 @@
 
     <hr>
 
+    <!-- Questions Section -->
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Question 1</h3>
@@ -119,7 +121,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">Question 5</h3>
       </div>
-      <div class="panel-body">People can rarely upset you. &nbsp;
+      <div class="panel-body">People rarely upset you. &nbsp;
         <select placeholder="" class="chosen-select pull-right" id="q5">
           <option value=""></option>
                 <option value="1">1 (Strongly Disagree)</option>
@@ -231,11 +233,15 @@
       </div>
     </div>
 
-    <!-- Trigger the modal with submit button -->
+
+
+
+    <!-- Trigger the modal pop-up with submit button, via data-target label. -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="submit">Submit</button>
 
     <hr>
 
+    <!-- Page footer containing links to the Friends List and Github -->
     <footer class="footer">
       <div class="container">
         <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/dpkillian/friendfinder">GitHub Repo</a></p>
@@ -273,22 +279,24 @@
 
 
 
-<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+<!-- Javascript Code Section -->
 <script type="text/javascript">
 
 
 
-    // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
-    // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
-    // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
-    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
-
+// In this code below we create the Front-end JavaScript which "POSTS" our form data
+// to the express server via jQuery post.  When the user hits submit, jQuery grabs all
+// of the fields then sends a post request to our API.  The API recognizes the route (/api/friends)
+// and then runs the associated code (found in apiRoutes.js -- app.post).
+// Below jQuery code is waiting for the submit button to be click, and then the following code
+// which makes the API call is run.
 
     $("#submit").on("click", function(event) {
       event.preventDefault();
 
 
-      // Here we grab the form elements
+      // Define a new objecg called newFriend which uses the jQuery handles to grab 
+      // the form data from the survey and insert it into the object.
       var newFriend = {
         name: $("#name").val(),
         photo: $("#photo-link").val(),
@@ -297,11 +305,13 @@
 
       console.log(newFriend);
 
-      // Grab the URL of the website
+      // Grab the URL of the website; for use with Heroku so that the absolute path
+      // for routing can be determined.
       var currentURL = window.location.origin;
       console.log(currentURL);
 
-      // AJAX post the data to the friends API. 
+      // AJAX post the data to the friends API.  When the post is complete .done (callback)
+      // runs to create a pop-up window to display the best match
           $.post(currentURL + "/api/friends", newFriend) 
         .done(function(data) {
           console.log('response = ' + JSON.stringify(data));
@@ -312,8 +322,6 @@
         });
 
     });
-
-
 
 </script>
 
