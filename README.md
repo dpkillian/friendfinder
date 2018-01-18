@@ -3,7 +3,7 @@ A web-based application that queries the user to rate 10 questions on a scale of
 
 
 ## Description
-This application is built using Node.js Express, jQuery, Bootstrap v3, Glyphicons, body-parser and path.  It runs in the browser on localhost:3030 or is hosted on Heroku [here](https://www.heroku.com/).
+This application is built using Node.js Express, jQuery, Bootstrap v3, Glyphicons, body-parser and path.  It runs in the browser on localhost:3030 or is hosted on Heroku [here](https://pure-sands-18875.herokuapp.com/).
 
 ## friendfinder Interface
 After invoking the node file (server.js), in the broswer address window (localhost:3030), the user is presented with the following screen.
